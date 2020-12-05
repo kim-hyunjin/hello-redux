@@ -24,3 +24,27 @@ const reducer = (data, action) => {
 - replaceReducer
 - subscribe : 리스너 함수(store안의 데이터가 변경될 때마다 실행될 함수)를 등록
 - Symbol
+
+# IMPORTANT!
+
+- reducer에서 직접 state에 변형을 주지 말것! 새 객체를 리턴해라!
+
+```
+DON'T
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return state.push(action.text);
+    ...
+  }
+}
+=================================================
+DO
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return [...state, {text: action.text}];
+    ...
+  }
+}
+```
