@@ -6,7 +6,7 @@
 
 - store : 데이터 저장고
 - reducer : 데이터를 변경하는 유일한 함수
-- action : reducer안에서 수행할 행위를 정의한 객체
+- action : reducer안에서 수행할 행위를 정의한 객체. action은 반드시 plain Object여야하며, type을 가지고 있어야 함.
 
 #### reducer의 파라미터
 
