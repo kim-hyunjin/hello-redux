@@ -48,3 +48,23 @@ const reducer = (state = [], action) => {
   }
 }
 ```
+
+## react redux
+
+store의 데이터가 변경될 때 리액트에서 리렌더링 하려면?
+
+- react-redux의 connect 사용
+
+### connect
+
+컴포넌트와 리덕스 스토어를 연결시켜준다.
+
+```
+myfunction(state, ownProps) {
+  // state는 리덕스에 들어있는 state
+  // ownProps는 컴포넌트 자신의 props
+  return {something: 'blahblah'} // 여기서 리던하는 값은 나 자신의 props로 추가됨
+}
+
+export default connect(myfunction) (MyComponent)
+```
