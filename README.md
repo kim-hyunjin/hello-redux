@@ -22,5 +22,5 @@ const reducer = (data, action) => {
 - dispatch : 파라미터로 넘겨 받은 action을 가지고 reducer 실행
 - getState : 현재 store에 저장된 데이터 리턴
 - replaceReducer
-- subscribe
+- subscribe : 리스너 함수(store안의 데이터가 변경될 때마다 실행될 함수)를 등록
 - Symbol
