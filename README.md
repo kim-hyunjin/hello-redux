@@ -55,9 +55,20 @@ store의 데이터가 변경될 때 리액트에서 리렌더링 하려면?
 
 - react-redux의 connect 사용
 
+  - Provider를 사용하면 Provider 자식 컴포넌트들에서 connect() 호출을 통해 redux store를 사용할 수 있게 된다.
+
+```
+import store from './myStore';
+
+<Provider store={store}>
+  <App />
+</Provider>
+```
+
 ### connect
 
-컴포넌트와 리덕스 스토어를 연결시켜준다.
+- 컴포넌트와 리덕스 스토어를 연결시켜준다.
+- 기본 형태 : connect(mapStateToProps, mapDispatchToProps) (Component)
 
 ```
 myfunction(state, ownProps) {
@@ -66,5 +77,9 @@ myfunction(state, ownProps) {
   return {something: 'blahblah'} // 여기서 리던하는 값은 나 자신의 props로 추가됨
 }
 
-export default connect(myfunction) (MyComponent)
+myDispatch() {
+
+}
+
+export default connect(myfunction, myDispatch) (MyComponent)
 ```
