@@ -71,18 +71,24 @@ import store from './myStore';
 - 기본 형태 : connect(mapStateToProps, mapDispatchToProps) (Component)
 
 ```
+/*
+  state는 리덕스에 들어있는 state
+  ownProps는 MyComponent 컴포넌트 자신의 props
+  여기서 리턴하는 값은 나 자신 MyComponent의 props로 추가됨
+*/
 myfunction(state, ownProps) {
-  // state는 리덕스에 들어있는 state
-  // ownProps는 MyComponent 컴포넌트 자신의 props
-  return {something: 'blahblah'} // 여기서 리던하는 값은 나 자신 MyComponent의 props로 추가됨
+  return {something: 'blahblah'}
 }
 
+/*
+  dispatch는 리덕스에 들어있는 dispatch 함수
+  ownProps는 MyComponent 컴포넌트 자신의 props
+  props로 특정 action을 dispatch하는 함수를 추가한다.
+*/
 myDispatch(dispatch, ownProps) {
-  // dispatch는 리덕스에 들어있는 dispatch 함수
-  // ownProps는 MyComponent 컴포넌트 자신의 props
   return {
     onSomething: dispatch(() => { //action goes here })
-  } // props로 특정 action을 dispatch하는 함수를 추가한다.
+  }
 }
 
 export default connect(myfunction, myDispatch) (MyComponent)
